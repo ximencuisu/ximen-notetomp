@@ -32,9 +32,9 @@ export class HtmlRenderer {
     result = this.applyTagStyle(result, "table", s.table);
     result = this.applyTagStyle(result, "th", s.th);
     result = this.applyTagStyle(result, "td", s.td);
+    result = this.applyTagStyle(result, "tr", s.tr);
 
-    // Inline code (inside <p>, <li>, etc., not inside <pre>)
-    this.applyInlineCode(result, s.code);
+    result = this.applyInlineCode(result, s.code);
 
     return result;
   }
@@ -61,9 +61,14 @@ export class HtmlRenderer {
     });
   }
 
-  private applyInlineCode(html: string, style: string): void {
-    // We don't need to do anything for inline code here
-    // as marked already handles <code> tags
+  private applyInlineCode(html: string, style: string): string {
+    if (!style) return html;
+    return html.replace(/<code(?![^>]*class="[^"]*language-)(\s[^>]*)?>/gi, (match, attrs) => {
+      if (match.includes("style=")) {
+        return match.replace(/style="([^"]*)"/, (_, existing) => `style="${existing} ${style}"`);
+      }
+      return match.replace(">", ` style="${style}">`);
+    });
   }
 
   /**

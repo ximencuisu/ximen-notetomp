@@ -108,10 +108,11 @@ export class MpView extends ItemView {
       const md = await this.app.vault.cachedRead(this.currentFile);
       this.parser.setCurrentFile(this.currentFile.path);
       const parsed = await this.parser.parse(md, this.currentFile.path);
-      const themedHtml = this.htmlRenderer.applyTheme(parsed.html, this.settings.mpDefaultTheme);
+      const themeId = this.settings.mpDefaultTheme;
+      const themedHtml = this.htmlRenderer.applyTheme(parsed.html, themeId);
       this.previewEl.innerHTML = themedHtml;
     } catch (e) {
-      this.previewEl.setText("渲染错误: " + e.message);
+      this.previewEl.setText("渲染错误: " + (e as Error).message);
     }
   }
 

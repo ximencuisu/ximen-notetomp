@@ -18,30 +18,24 @@ export default class XimenNoteToMp extends Plugin {
     this.parser = new MarkdownParser(this.app.vault, this.app);
     this.htmlRenderer = new HtmlRenderer();
 
-    // Load styles
     this.addStyleTag();
 
-    // Register 公众号/头条号 view
     this.registerView(VIEW_TYPE_MP, (leaf) => {
       return new MpView(leaf, this.parser, this.htmlRenderer, this.settings);
     });
 
-    // Register 小红书 view
     this.registerView(VIEW_TYPE_RED, (leaf) => {
       return new RedView(leaf, this.parser, this.settings);
     });
 
-    // Ribbon icon for 公众号
     this.addRibbonIcon("message-circle", "打开公众号/头条号预览", () => {
       this.openMpView();
     });
 
-    // Ribbon icon for 小红书
     this.addRibbonIcon("camera", "打开小红书预览", () => {
       this.openRedView();
     });
 
-    // Commands
     this.addCommand({
       id: "open-mp-preview",
       name: "打开公众号/头条号预览",
@@ -67,7 +61,6 @@ export default class XimenNoteToMp extends Plugin {
       },
     });
 
-    // Settings tab
     this.addSettingTab(new XimenSettingTab(this.app, this));
   }
 
@@ -108,6 +101,18 @@ export default class XimenNoteToMp extends Plugin {
 
   async saveSettings(): Promise<void> {
     await this.saveData(this.settings);
+    this.refreshViews();
+  }
+
+  private refreshViews(): void {
+    this.app.workspace.getLeavesOfType(VIEW_TYPE_MP).forEach(leaf => {
+      const view = leaf.view as MpView;
+      view.refresh();
+    });
+    this.app.workspace.getLeavesOfType(VIEW_TYPE_RED).forEach(leaf => {
+      const view = leaf.view as RedView;
+      view.refresh();
+    });
   }
 
   async openMpView(): Promise<void> {
