@@ -9,7 +9,7 @@ const FM_REGEX = /^---\s*\n[\s\S]*?\n---\s*\n/;
 const WIKILINK_REGEX = /!?\[\[([^\]]+?)(?:\|([^\]]*))?\]\]/g;
 
 // Callout regex: > [!TYPE] optional title
-const CALLOUT_REGEX = /^>\s*\[!(\w+)\]\s*(.*)$/gm;
+const CALLOUT_REGEX = /^>\s*\[!(\w+)\]\s*(.*)$/;
 
 export interface ParseResult {
   html: string;
@@ -120,7 +120,7 @@ export class MarkdownParser {
     return results.join("");
   }
 
-  private processCallouts(md: string): string {
+  private async processCallouts(md: string): Promise<string> {
     const lines = md.split("\n");
     const result: string[] = [];
     let i = 0;
@@ -146,7 +146,7 @@ export class MarkdownParser {
         }
 
         const content = calloutLines.join("\n");
-        const htmlContent = this.marked.parse(content) as string;
+        const htmlContent = await this.marked.parse(content) as string;
         result.push(`<div class="note-callout note-callout-${type}">
 <div class="note-callout-title-wrap">
 <span class="note-callout-icon"><svg viewBox="0 0 18 18" width="18" height="18">${this.getCalloutIcon(type)}</svg></span>
@@ -188,7 +188,7 @@ export class MarkdownParser {
     const title = this.getTitleFromFrontmatter(md) || filePath.split("/").pop()?.replace(/\.md$/, "") || "";
     let body = this.stripFrontmatter(md);
     body = await this.processWikilinks(body);
-    body = this.processCallouts(body);
+    body = await this.processCallouts(body);
     const html = await this.marked.parse(body) as string;
     return { html, images: [], title };
   }

@@ -38,6 +38,27 @@ export class RedRenderer {
     const sections: RedCardSection[] = [];
     let sectionIdx = 0;
 
+    const beforeFirstHeader: Element[] = [];
+    let firstHeaderIdx = -1;
+    for (let i = 0; i < div.children.length; i++) {
+      const child = div.children[i] as Element;
+      if (child.matches(headingLevel)) {
+        firstHeaderIdx = i;
+        break;
+      }
+      beforeFirstHeader.push(child);
+    }
+
+    if (beforeFirstHeader.length > 0) {
+      const preContent = beforeFirstHeader.map(el => el.outerHTML).join("\n");
+      sections.push({
+        index: String(sectionIdx),
+        heading: title || "",
+        content: this.wrapHeading(title, headingLevel) + this.processElements(preContent),
+      });
+      sectionIdx++;
+    }
+
     for (let i = 0; i < headers.length; i++) {
       const header = headers[i];
       const headingText = header.textContent || "";
@@ -93,10 +114,57 @@ export class RedRenderer {
   }
 
   processElements(html: string): string {
-    // This processing happens at the DOM level, so we pass through the raw HTML
-    // and let the caller apply CSS classes. Here we just return the HTML as-is
-    // since the RedView will handle DOM manipulation after rendering.
-    return html;
+    const div = document.createElement("div");
+    div.innerHTML = html;
+
+    div.querySelectorAll("blockquote").forEach(el => {
+      el.classList.add("red-blockquote");
+      el.querySelectorAll("p").forEach(p => p.classList.add("red-blockquote-p"));
+    });
+
+    div.querySelectorAll("strong").forEach(el => {
+      const wrap = document.createElement("span");
+      wrap.classList.add("red-emphasis");
+      el.parentNode?.insertBefore(wrap, el);
+      wrap.appendChild(el);
+    });
+
+    div.querySelectorAll("em").forEach(el => {
+      const parent = el.closest(".red-emphasis");
+      if (!parent) {
+        const wrap = document.createElement("span");
+        wrap.classList.add("red-emphasis");
+        el.parentNode?.insertBefore(wrap, el);
+        wrap.appendChild(el);
+      }
+    });
+
+    div.querySelectorAll("del").forEach(el => el.classList.add("red-del"));
+
+    div.querySelectorAll("pre").forEach(el => {
+      el.classList.add("red-pre");
+    });
+
+    div.querySelectorAll("code").forEach(el => {
+      if (!el.closest("pre")) {
+        el.classList.add("red-code-inline");
+      }
+    });
+
+    div.querySelectorAll("img").forEach(el => el.classList.add("red-image"));
+
+    div.querySelectorAll("a").forEach(el => el.classList.add("red-link"));
+
+    div.querySelectorAll("table").forEach(el => el.classList.add("red-table"));
+
+    div.querySelectorAll("hr").forEach(el => el.classList.add("red-hr"));
+
+    div.querySelectorAll('input[type="checkbox"]').forEach(el => {
+      const li = el.closest("li");
+      if (li) li.classList.add("red-task-list-item");
+    });
+
+    return div.innerHTML;
   }
 
   /**

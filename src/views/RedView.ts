@@ -111,7 +111,7 @@ export class RedView extends ItemView {
     previewWrapper.style.cssText = "flex:1;display:flex;justify-content:center;align-items:flex-start;overflow-y:auto;padding:16px;background:var(--background-secondary);";
 
     this.previewContainer = previewWrapper.createDiv({ cls: "red-image-preview" });
-    this.previewContainer.style.cssText = "width:360px;min-height:480px;max-width:100%;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.15);position:relative;background:#1c1c1e;";
+    this.previewContainer.style.cssText = "width:360px;aspect-ratio:3/4;max-width:100%;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.15);position:relative;background:#1c1c1e;";
 
     this.contentContainer = this.previewContainer.createDiv({ cls: "red-preview-content" });
 
@@ -148,6 +148,12 @@ export class RedView extends ItemView {
     }
 
     try {
+      if (this.themeSelect) {
+        this.themeSelect.value = this.settings.redThemeId;
+      }
+      if (this.fontSizeInput) {
+        this.fontSizeInput.value = String(this.settings.redFontSize);
+      }
       const md = await this.app.vault.cachedRead(this.currentFile);
       this.parser.setCurrentFile(this.currentFile.path);
       this.sections = await this.redRenderer.renderCards(md, this.currentFile.path, this.settings);
@@ -155,7 +161,7 @@ export class RedView extends ItemView {
       this.showCurrentPage();
       this.updateNav();
     } catch (e) {
-      this.contentContainer.setText("渲染错误: " + e.message);
+      this.contentContainer.setText("渲染错误: " + (e as Error).message);
     }
   }
 
