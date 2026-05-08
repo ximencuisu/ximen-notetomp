@@ -1,0 +1,126 @@
+﻿/* 公众号/头条号预览 */
+.mp-preview {
+  padding: 16px;
+  overflow-y: auto;
+  height: calc(100% - 50px);
+}
+
+.mp-toolbar button:hover,
+.red-toolbar button:hover,
+.red-export-bar button:hover {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* 小红书卡片 */
+.red-image-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.red-preview-content-inner {
+  min-height: 200px;
+}
+
+.red-preview-content-inner h2,
+.red-preview-content-inner h3,
+.red-preview-content-inner h4,
+.red-preview-content-inner h5,
+.red-preview-content-inner h6 {
+  margin-top: 0;
+}
+
+.red-preview-content-inner p {
+  margin: 0.5em 0;
+}
+
+.red-preview-content-inner ul,
+.red-preview-content-inner ol {
+  padding-left: 20px;
+}
+
+.red-preview-content-inner blockquote {
+  margin: 0.8em 0;
+}
+
+.red-preview-content-inner pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.red-preview-content-inner img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.8em auto;
+}
+
+.red-preview-content-inner hr {
+  margin: 1em 0;
+}
+
+/* Callout styles */
+.note-callout {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-left: 4px solid;
+}
+
+.note-callout-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.note-callout-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.note-callout-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.note-callout-content > :first-child {
+  margin-top: 0;
+}
+
+.note-callout-content > :last-child {
+  margin-bottom: 0;
+}
+
+.note-callout-note { border-left-color: rgb(8, 109, 221); background: rgba(8, 109, 221, 0.1); }
+.note-callout-info { border-left-color: rgb(8, 109, 221); background: rgba(8, 109, 221, 0.1); }
+.note-callout-todo { border-left-color: rgb(8, 109, 221); background: rgba(8, 109, 221, 0.1); }
+.note-callout-abstract { border-left-color: rgb(0, 176, 255); background: rgba(0, 176, 255, 0.1); }
+.note-callout-tip { border-left-color: rgb(0, 191, 188); background: rgba(0, 191, 188, 0.1); }
+.note-callout-hint { border-left-color: rgb(0, 191, 188); background: rgba(0, 191, 188, 0.1); }
+.note-callout-success { border-left-color: rgb(0, 200, 83); background: rgba(0, 200, 83, 0.1); }
+.note-callout-done { border-left-color: rgb(0, 200, 83); background: rgba(0, 200, 83, 0.1); }
+.note-callout-check { border-left-color: rgb(0, 200, 83); background: rgba(0, 200, 83, 0.1); }
+.note-callout-question { border-left-color: rgb(255, 193, 7); background: rgba(255, 193, 7, 0.1); }
+.note-callout-help { border-left-color: rgb(255, 193, 7); background: rgba(255, 193, 7, 0.1); }
+.note-callout-warning { border-left-color: rgb(255, 152, 0); background: rgba(255, 152, 0, 0.1); }
+.note-callout-caution { border-left-color: rgb(255, 152, 0); background: rgba(255, 152, 0, 0.1); }
+.note-callout-attention { border-left-color: rgb(255, 152, 0); background: rgba(255, 152, 0, 0.1); }
+.note-callout-failure { border-left-color: rgb(255, 69, 58); background: rgba(255, 69, 58, 0.1); }
+.note-callout-fail { border-left-color: rgb(255, 69, 58); background: rgba(255, 69, 58, 0.1); }
+.note-callout-missing { border-left-color: rgb(255, 69, 58); background: rgba(255, 69, 58, 0.1); }
+.note-callout-danger { border-left-color: rgb(255, 69, 58); background: rgba(255, 69, 58, 0.1); }
+.note-callout-error { border-left-color: rgb(255, 69, 58); background: rgba(255, 69, 58, 0.1); }
+.note-callout-bug { border-left-color: rgb(255, 69, 58); background: rgba(255, 69, 58, 0.1); }
+.note-callout-example { border-left-color: rgb(156, 39, 176); background: rgba(156, 39, 176, 0.1); }
+.note-callout-quote { border-left-color: rgb(158, 158, 158); background: rgba(158, 158, 158, 0.1); }
+.note-callout-cite { border-left-color: rgb(158, 158, 158); background: rgba(158, 158, 158, 0.1); }
+
+/* Embed blockquote */
+blockquote.note-embed {
+  border-left: 3px solid var(--background-modifier-border);
+  margin: 12px 0;
+  padding: 8px 16px;
+  background: var(--background-primary-alt);
+}
