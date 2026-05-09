@@ -238,10 +238,18 @@ export class RedView extends ItemView {
     }
 
     if (this.settings.redBackgroundImage) {
-      container.style.backgroundImage = `url(${this.settings.redBackgroundImage})`;
-      container.style.backgroundSize = `${this.settings.redBackgroundScale * 100}%`;
-      container.style.backgroundPosition = `${this.settings.redBackgroundPositionX}% ${this.settings.redBackgroundPositionY}%`;
-      container.style.backgroundRepeat = "no-repeat";
+      const img = this.settings.redBackgroundImage;
+      if (img.startsWith("linear-gradient") || img.startsWith("radial-gradient") || img.startsWith("repeating-linear-gradient")) {
+        container.style.backgroundImage = img;
+        container.style.backgroundSize = "cover";
+        container.style.backgroundPosition = "center";
+        container.style.backgroundRepeat = "no-repeat";
+      } else {
+        container.style.backgroundImage = `url(${img})`;
+        container.style.backgroundSize = `${this.settings.redBackgroundScale * 100}%`;
+        container.style.backgroundPosition = `${this.settings.redBackgroundPositionX}% ${this.settings.redBackgroundPositionY}%`;
+        container.style.backgroundRepeat = "no-repeat";
+      }
     }
   }
 
