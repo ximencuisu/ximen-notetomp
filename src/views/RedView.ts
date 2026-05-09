@@ -5,6 +5,7 @@ import { ThemeManager } from "../theme-manager";
 import { ExportManager } from "../export-manager";
 import { XimenSettings } from "../settings";
 import { RED_THEME_MAP, RED_THEMES } from "../templates/index";
+import { BackgroundModal } from "./BackgroundModal";
 
 export const VIEW_TYPE_RED = "ximen-red-view";
 
@@ -53,6 +54,17 @@ export class RedView extends ItemView {
     // Toolbar
     const toolbar = container.createDiv({ cls: "red-toolbar" });
     toolbar.style.cssText = "display:flex;align-items:center;gap:6px;padding:6px 8px;border-bottom:1px solid var(--background-modifier-border);flex-wrap:wrap;font-size:12px;";
+
+    // Background button
+    const bgBtn = toolbar.createEl("button", { text: "🎨 背景" });
+    bgBtn.style.cssText = "padding:2px 8px;cursor:pointer;font-size:12px;";
+    bgBtn.addEventListener("click", () => {
+      const modal = new BackgroundModal(this.app, this.settings, () => {
+        this.applyThemeToCurrent();
+        this.applyBackgroundOverride();
+      });
+      modal.open();
+    });
 
     toolbar.createSpan({ text: "主题:" });
     this.themeSelect = toolbar.createEl("select");
