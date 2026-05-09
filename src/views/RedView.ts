@@ -203,12 +203,33 @@ export class RedView extends ItemView {
     ].join("\n");
 
     this.applyThemeToCurrent();
+    this.applyBackgroundOverride();
   }
 
   private applyThemeToCurrent(): void {
     const theme = RED_THEME_MAP[this.settings.redThemeId];
     if (theme) {
       this.themeManager.applyTheme(this.previewContainer, theme.styles, this.settings.redFontSize, this.settings.redFontFamily);
+    }
+  }
+
+  private applyBackgroundOverride(): void {
+    const container = this.previewContainer;
+    if (!container) return;
+
+    if (this.settings.redBackgroundColor) {
+      container.style.backgroundColor = this.settings.redBackgroundColor;
+      const footer = container.querySelector(".red-preview-footer") as HTMLElement;
+      if (footer) {
+        footer.style.background = this.settings.redBackgroundColor;
+      }
+    }
+
+    if (this.settings.redBackgroundImage) {
+      container.style.backgroundImage = `url(${this.settings.redBackgroundImage})`;
+      container.style.backgroundSize = `${this.settings.redBackgroundScale * 100}%`;
+      container.style.backgroundPosition = `${this.settings.redBackgroundPositionX}% ${this.settings.redBackgroundPositionY}%`;
+      container.style.backgroundRepeat = "no-repeat";
     }
   }
 

@@ -1,0 +1,69 @@
+{
+    "id": "bold",
+    "name": "Bold 醒目冲击",
+    "styles": {
+        "imagePreview": "background-color: #1A1A1A; padding: 32px 28px;",
+        "header": {
+            "avatar": {
+                "container": "width: 42px; height: 42px; border-radius: 8px; overflow: hidden; box-shadow: 0 0 12px rgba(245,101,101,0.3); border: 2px solid rgba(245,101,101,0.5);",
+                "placeholder": "background: #2D2D2D; transition: all 0.3s ease;",
+                "image": "object-fit: cover; transition: transform 0.3s ease;"
+            },
+            "nameContainer": "display: flex; align-items: center; gap: 8px;",
+            "userName": "font-size: 17px; font-weight: 800; color: #F56565; letter-spacing: 0.02em; text-transform: uppercase;",
+            "userId": "font-size: 14px; color: #FC8181; font-weight: 600;",
+            "postTime": "font-size: 13px; color: #F6E05E; font-weight: 600;",
+            "verifiedIcon": "width: 20px; height: 20px; margin-left: -5px; fill: #F56565;"
+        },
+        "footer": {
+            "container": "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #FC8181; font-size: 13px; font-weight: 600; border-top: 2px solid rgba(245,101,101,0.4); background: rgba(26,26,26,0.95); backdrop-filter: blur(8px);",
+            "text": "color: inherit; transition: color 0.2s ease; white-space: nowrap; text-transform: uppercase;",
+            "separator": "color: #F6E05E;"
+        },
+        "title": {
+            "h2": {
+                "base": "margin: 0; font-size: 1.6em; letter-spacing: -0.02em; line-height: 1.4; text-transform: uppercase;",
+                "content": "font-weight: 800; color: #F56565; text-shadow: 0 2px 8px rgba(245,101,101,0.3);",
+                "after": ""
+            },
+            "h3": {
+                "base": "margin: 28px 0 0; font-size: 1.3em; line-height: 1.4; text-transform: uppercase;",
+                "content": "font-weight: 800; color: #F6E05E; text-shadow: 0 2px 8px rgba(246,224,94,0.2);",
+                "after": ""
+            },
+            "base": {
+                "base": "margin: 24px 0 0; font-size: 1.15em; line-height: 1.5; text-transform: uppercase;",
+                "content": "font-weight: 700; color: #FC8181;",
+                "after": ""
+            }
+        },
+        "paragraph": "line-height: 1.8; margin-bottom: 1.1em; font-size: 15px; color: #E2E8F0; font-weight: 500;",
+        "emphasis": {
+            "strong": "font-weight: 800; color: #F56565; text-shadow: 0 0 12px rgba(245,101,101,0.4);",
+            "em": "font-style: normal; color: #F6E05E; background: rgba(246,224,94,0.15); padding: 0 4px; font-weight: 600;",
+            "del": "text-decoration: line-through; color: #718096; opacity: 0.7;"
+        },
+        "list": {
+            "container": "padding-left: 26px; margin-bottom: 1.2em; color: #CBD5E0;",
+            "item": "margin-bottom: 0.7em; font-size: 15px; color: #CBD5E0; line-height: 1.8; font-weight: 500;",
+            "taskList": "list-style: none; margin-left: -22px; font-size: 15px; color: #CBD5E0; line-height: 1.8; font-weight: 500;"
+        },
+        "code": {
+            "block": "background: #2D2D2D; padding: 1.2em; border-radius: 8px; font-size: 14px; font-family: 'SF Mono', Menlo, monospace; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; color: #F56565; margin: 1.3em 0; border: 1px solid rgba(245,101,101,0.3); box-shadow: 0 0 8px rgba(245,101,101,0.1);",
+            "inline": "background: #2D2D2D; padding: 3px 8px; border-radius: 4px; color: #F56565; font-size: 14px; font-family: 'SF Mono', Menlo, monospace; border: 1px solid rgba(245,101,101,0.2);"
+        },
+        "quote": "border-left: 4px solid #F56565; padding: 0 0 0 18px; margin: 1.2em 0; color: #FC8181; font-style: normal; font-size: 15px; line-height: 1.8; background: rgba(245,101,101,0.05);",
+        "image": "max-width: 100%; height: auto; margin: 1.3em auto; border-radius: 8px; box-shadow: 0 0 20px rgba(245,101,101,0.15);",
+        "link": "color: #F6E05E; text-decoration: none; border-bottom: 2px solid rgba(246,224,94,0.4); transition: all 0.2s ease; font-weight: 600;",
+        "table": {
+            "container": "width: 100%; margin: 1.3em 0; border-collapse: separate; border-spacing: 0; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,101,101,0.3);",
+            "header": "background: #2D2D2D; font-weight: 700; color: #F56565; padding: 12px; text-transform: uppercase;",
+            "cell": "padding: 12px; color: #CBD5E0; border-top: 1px solid rgba(245,101,101,0.15);"
+        },
+        "hr": "border: none; height: 2px; background: linear-gradient(90deg, #F56565, #F6E05E); margin: 28px 0; box-shadow: 0 0 8px rgba(245,101,101,0.2);",
+        "footnote": {
+            "ref": "color: #FC8181; text-decoration: none; font-size: 0.9em; font-weight: 600;",
+            "backref": "color: #FC8181; text-decoration: none; font-size: 0.9em; font-weight: 600;"
+        }
+    }
+}

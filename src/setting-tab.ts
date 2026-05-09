@@ -131,5 +131,68 @@ export class XimenSettingTab extends PluginSettingTab {
           await this.plugin.saveSettings();
         });
       });
+
+    containerEl.createEl("h4", { text: "背景设置" });
+
+    new Setting(containerEl)
+      .setName("背景颜色")
+      .setDesc("自定义卡片背景颜色（如 #FFFAF0），留空使用主题默认")
+      .addText(text => {
+        text.setValue(this.plugin.settings.redBackgroundColor);
+        text.onChange(async (value) => {
+          this.plugin.settings.redBackgroundColor = value;
+          await this.plugin.saveSettings();
+        });
+      });
+
+    new Setting(containerEl)
+      .setName("背景图片")
+      .setDesc("卡片背景图片 URL 或路径，留空不使用")
+      .addText(text => {
+        text.setValue(this.plugin.settings.redBackgroundImage);
+        text.onChange(async (value) => {
+          this.plugin.settings.redBackgroundImage = value;
+          await this.plugin.saveSettings();
+        });
+      });
+
+    new Setting(containerEl)
+      .setName("背景缩放")
+      .setDesc("背景图片缩放比例")
+      .addSlider(slider => {
+        slider.setLimits(50, 300, 10);
+        slider.setValue(this.plugin.settings.redBackgroundScale * 100);
+        slider.setDynamicTooltip();
+        slider.onChange(async (value) => {
+          this.plugin.settings.redBackgroundScale = value / 100;
+          await this.plugin.saveSettings();
+        });
+      });
+
+    new Setting(containerEl)
+      .setName("背景位置 X")
+      .setDesc("背景图片水平位置 (%)")
+      .addSlider(slider => {
+        slider.setLimits(0, 100, 1);
+        slider.setValue(this.plugin.settings.redBackgroundPositionX);
+        slider.setDynamicTooltip();
+        slider.onChange(async (value) => {
+          this.plugin.settings.redBackgroundPositionX = value;
+          await this.plugin.saveSettings();
+        });
+      });
+
+    new Setting(containerEl)
+      .setName("背景位置 Y")
+      .setDesc("背景图片垂直位置 (%)")
+      .addSlider(slider => {
+        slider.setLimits(0, 100, 1);
+        slider.setValue(this.plugin.settings.redBackgroundPositionY);
+        slider.setDynamicTooltip();
+        slider.onChange(async (value) => {
+          this.plugin.settings.redBackgroundPositionY = value;
+          await this.plugin.saveSettings();
+        });
+      });
   }
 }

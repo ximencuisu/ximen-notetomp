@@ -1,0 +1,69 @@
+{
+    "id": "sketch-notes",
+    "name": "Sketch Notes 手绘笔记",
+    "styles": {
+        "imagePreview": "background-color: #F5F0E8; padding: 32px 28px;",
+        "header": {
+            "avatar": {
+                "container": "width: 40px; height: 40px; border-radius: 50%; overflow: hidden; box-shadow: 0 2px 6px rgba(232,101,90,0.15); border: 2px solid rgba(168,216,234,0.5);",
+                "placeholder": "background: #EDE8E0; transition: all 0.3s ease;",
+                "image": "object-fit: cover; transition: transform 0.3s ease;"
+            },
+            "nameContainer": "display: flex; align-items: center; gap: 8px;",
+            "userName": "font-size: 16px; font-weight: 700; color: #2C3E50; letter-spacing: 0.01em;",
+            "userId": "font-size: 14px; color: #6B6B6B;",
+            "postTime": "font-size: 13px; color: #E8655A; font-weight: 600;",
+            "verifiedIcon": "width: 20px; height: 20px; margin-left: -5px; fill: #E8655A;"
+        },
+        "footer": {
+            "container": "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #6B6B6B; font-size: 13px; border-top: 1px dashed rgba(44,62,80,0.2); background: rgba(245,240,232,0.95); backdrop-filter: blur(8px);",
+            "text": "color: inherit; transition: color 0.2s ease; white-space: nowrap;",
+            "separator": "color: #E8655A;"
+        },
+        "title": {
+            "h2": {
+                "base": "margin: 0; font-size: 1.5em; letter-spacing: -0.01em; line-height: 1.5; border-bottom: 2px solid rgba(168,216,234,0.5); padding-bottom: 6px;",
+                "content": "font-weight: 700; color: #2C3E50;",
+                "after": ""
+            },
+            "h3": {
+                "base": "margin: 28px 0 0; font-size: 1.25em; line-height: 1.5; background: rgba(168,216,234,0.2); padding: 4px 8px; border-radius: 4px; display: inline-block;",
+                "content": "font-weight: 700; color: #2C3E50;",
+                "after": ""
+            },
+            "base": {
+                "base": "margin: 24px 0 0; font-size: 1.1em; line-height: 1.5; background: rgba(213,198,224,0.2); padding: 3px 8px; border-radius: 4px; display: inline-block;",
+                "content": "font-weight: 700; color: #2C3E50;",
+                "after": ""
+            }
+        },
+        "paragraph": "line-height: 1.8; margin-bottom: 1.1em; font-size: 15px; color: #2C3E50;",
+        "emphasis": {
+            "strong": "font-weight: 700; color: #E8655A; background: rgba(248,213,196,0.3); padding: 0 3px; border-radius: 2px;",
+            "em": "font-style: normal; color: #2C3E50; background: rgba(181,229,207,0.3); padding: 0 3px; border-radius: 2px;",
+            "del": "text-decoration: line-through; color: #6B6B6B; opacity: 0.6;"
+        },
+        "list": {
+            "container": "padding-left: 26px; margin-bottom: 1.2em; color: #2C3E50;",
+            "item": "margin-bottom: 0.7em; font-size: 15px; color: #2C3E50; line-height: 1.8; background: rgba(168,216,234,0.1); padding: 4px 8px; border-radius: 4px; list-style: none; margin-left: -26px; padding-left: 26px;",
+            "taskList": "list-style: none; margin-left: -22px; font-size: 15px; color: #2C3E50; line-height: 1.8; background: rgba(181,229,207,0.15); padding: 4px 8px; border-radius: 4px;"
+        },
+        "code": {
+            "block": "background: rgba(168,216,234,0.15); padding: 1.2em; border-radius: 8px; font-size: 14px; font-family: 'Courier New', monospace; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; color: #2C3E50; margin: 1.3em 0; border: 1px dashed rgba(168,216,234,0.4);",
+            "inline": "background: rgba(168,216,234,0.2); padding: 3px 8px; border-radius: 4px; color: #2C3E50; font-size: 14px; font-family: 'Courier New', monospace;"
+        },
+        "quote": "border-left: 3px solid #E8655A; padding: 0 0 0 18px; margin: 1.2em 0; color: #2C3E50; font-style: normal; font-size: 15px; line-height: 1.8; background: rgba(248,213,196,0.15); border-radius: 0 8px 8px 0;",
+        "image": "max-width: 100%; height: auto; margin: 1.3em auto; border-radius: 8px; box-shadow: 0 3px 10px rgba(44,62,80,0.1); border: 2px solid rgba(168,216,234,0.3);",
+        "link": "color: #E8655A; text-decoration: none; border-bottom: 1px dashed rgba(232,101,90,0.4); transition: all 0.2s ease; font-weight: 600;",
+        "table": {
+            "container": "width: 100%; margin: 1.3em 0; border-collapse: separate; border-spacing: 0; border-radius: 8px; overflow: hidden; border: 1px dashed rgba(168,216,234,0.4);",
+            "header": "background: rgba(168,216,234,0.2); font-weight: 700; color: #2C3E50; padding: 12px;",
+            "cell": "padding: 12px; color: #2C3E50; border-top: 1px dashed rgba(168,216,234,0.3);"
+        },
+        "hr": "border: none; border-top: 2px dashed rgba(44,62,80,0.2); margin: 28px 0;",
+        "footnote": {
+            "ref": "color: #6B6B6B; text-decoration: none; font-size: 0.9em;",
+            "backref": "color: #6B6B6B; text-decoration: none; font-size: 0.9em;"
+        }
+    }
+}

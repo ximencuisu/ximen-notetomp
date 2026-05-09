@@ -1,0 +1,69 @@
+{
+    "id": "fresh",
+    "name": "Fresh 清新自然",
+    "styles": {
+        "imagePreview": "background-color: #F0FFF4; padding: 32px 28px;",
+        "header": {
+            "avatar": {
+                "container": "width: 40px; height: 40px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(72,187,120,0.15); border: 1px solid rgba(72,187,120,0.2);",
+                "placeholder": "background: linear-gradient(135deg, #E6FFFA, #F0FFF4); transition: all 0.3s ease;",
+                "image": "object-fit: cover; transition: transform 0.3s ease;"
+            },
+            "nameContainer": "display: flex; align-items: center; gap: 8px;",
+            "userName": "font-size: 16px; font-weight: 600; color: #276749; letter-spacing: 0.01em;",
+            "userId": "font-size: 14px; color: #48BB78;",
+            "postTime": "font-size: 13px; color: #68D391;",
+            "verifiedIcon": "width: 20px; height: 20px; margin-left: -5px; fill: #48BB78;"
+        },
+        "footer": {
+            "container": "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #48BB78; font-size: 13px; border-top: 1px solid rgba(72,187,120,0.2); background: rgba(240,255,244,0.95); backdrop-filter: blur(8px);",
+            "text": "color: inherit; transition: color 0.2s ease; white-space: nowrap;",
+            "separator": "color: #9AE6B4;"
+        },
+        "title": {
+            "h2": {
+                "base": "margin: 0; font-size: 1.5em; letter-spacing: -0.01em; line-height: 1.5;",
+                "content": "font-weight: 600; color: #276749;",
+                "after": ""
+            },
+            "h3": {
+                "base": "margin: 28px 0 0; font-size: 1.25em; line-height: 1.5;",
+                "content": "font-weight: 600; color: #276749;",
+                "after": ""
+            },
+            "base": {
+                "base": "margin: 24px 0 0; font-size: 1.1em; line-height: 1.5;",
+                "content": "font-weight: 600; color: #276749;",
+                "after": ""
+            }
+        },
+        "paragraph": "line-height: 1.8; margin-bottom: 1.1em; font-size: 15px; color: #2D3748;",
+        "emphasis": {
+            "strong": "font-weight: 700; color: #38A169; text-shadow: 0 1px 2px rgba(56,161,105,0.1);",
+            "em": "font-style: normal; color: #48BB78; background: rgba(72,187,120,0.1); padding: 0 4px; border-radius: 2px;",
+            "del": "text-decoration: line-through; color: #9AE6B4; opacity: 0.8;"
+        },
+        "list": {
+            "container": "padding-left: 26px; margin-bottom: 1.2em; color: #4A5568;",
+            "item": "margin-bottom: 0.7em; font-size: 15px; color: #4A5568; line-height: 1.8;",
+            "taskList": "list-style: none; margin-left: -22px; font-size: 15px; color: #4A5568; line-height: 1.8;"
+        },
+        "code": {
+            "block": "background: #E6FFFA; padding: 1.2em; border-radius: 10px; font-size: 14px; font-family: 'SF Mono', Menlo, monospace; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; color: #276749; margin: 1.3em 0; border: 1px solid rgba(72,187,120,0.2);",
+            "inline": "background: #E6FFFA; padding: 3px 8px; border-radius: 4px; color: #276749; font-size: 14px; font-family: 'SF Mono', Menlo, monospace;"
+        },
+        "quote": "border-left: 3px solid #48BB78; padding: 0 0 0 18px; margin: 1.2em 0; color: #276749; font-style: normal; font-size: 15px; line-height: 1.8; background: rgba(72,187,120,0.05); border-radius: 0 6px 6px 0;",
+        "image": "max-width: 100%; height: auto; margin: 1.3em auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(72,187,120,0.1);",
+        "link": "color: #38A169; text-decoration: none; border-bottom: 1px solid rgba(56,161,105,0.3); transition: all 0.2s ease;",
+        "table": {
+            "container": "width: 100%; margin: 1.3em 0; border-collapse: separate; border-spacing: 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(72,187,120,0.2);",
+            "header": "background: #E6FFFA; font-weight: 600; color: #276749; padding: 12px;",
+            "cell": "padding: 12px; color: #4A5568; border-top: 1px solid rgba(72,187,120,0.15);"
+        },
+        "hr": "border: none; border-top: 1px solid rgba(72,187,120,0.2); margin: 28px 0;",
+        "footnote": {
+            "ref": "color: #68D391; text-decoration: none; font-size: 0.9em;",
+            "backref": "color: #68D391; text-decoration: none; font-size: 0.9em;"
+        }
+    }
+}

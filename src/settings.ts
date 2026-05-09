@@ -15,6 +15,7 @@
   redFooterLeft: string;
   redFooterRight: string;
   redBackgroundImage: string;
+  redBackgroundColor: string;
   redBackgroundScale: number;
   redBackgroundPositionX: number;
   redBackgroundPositionY: number;
@@ -34,6 +35,7 @@ export const DEFAULT_SETTINGS: XimenSettings = {
   redFooterLeft: "感谢阅读",
   redFooterRight: "欢迎关注",
   redBackgroundImage: "",
+  redBackgroundColor: "",
   redBackgroundScale: 1,
   redBackgroundPositionX: 0,
   redBackgroundPositionY: 0,

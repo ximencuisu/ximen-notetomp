@@ -1,0 +1,69 @@
+{
+    "id": "pop",
+    "name": "Pop 活力流行",
+    "styles": {
+        "imagePreview": "background-color: #FFFFFF; padding: 32px 28px;",
+        "header": {
+            "avatar": {
+                "container": "width: 42px; height: 42px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 12px rgba(245,101,101,0.2); border: 3px solid #F56565;",
+                "placeholder": "background: linear-gradient(135deg, #FFF5F5, #FFFFF0); transition: all 0.3s ease;",
+                "image": "object-fit: cover; transition: transform 0.3s ease;"
+            },
+            "nameContainer": "display: flex; align-items: center; gap: 8px;",
+            "userName": "font-size: 17px; font-weight: 800; color: #E53E3E; letter-spacing: 0.01em;",
+            "userId": "font-size: 14px; color: #DD6B20; font-weight: 600;",
+            "postTime": "font-size: 13px; color: #D69E2E; font-weight: 600;",
+            "verifiedIcon": "width: 20px; height: 20px; margin-left: -5px; fill: #E53E3E;"
+        },
+        "footer": {
+            "container": "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #DD6B20; font-size: 13px; font-weight: 600; border-top: 2px solid #F56565; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);",
+            "text": "color: inherit; transition: color 0.2s ease; white-space: nowrap;",
+            "separator": "color: #ECC94B;"
+        },
+        "title": {
+            "h2": {
+                "base": "margin: 0; font-size: 1.55em; letter-spacing: -0.01em; line-height: 1.4;",
+                "content": "font-weight: 800; color: #E53E3E; -webkit-text-stroke: 0.5px #C53030;",
+                "after": ""
+            },
+            "h3": {
+                "base": "margin: 28px 0 0; font-size: 1.3em; line-height: 1.4;",
+                "content": "font-weight: 800; color: #DD6B20; -webkit-text-stroke: 0.5px #C05621;",
+                "after": ""
+            },
+            "base": {
+                "base": "margin: 24px 0 0; font-size: 1.15em; line-height: 1.5;",
+                "content": "font-weight: 700; color: #D69E2E;",
+                "after": ""
+            }
+        },
+        "paragraph": "line-height: 1.8; margin-bottom: 1.1em; font-size: 15px; color: #2D3748; font-weight: 500;",
+        "emphasis": {
+            "strong": "font-weight: 800; color: #E53E3E; text-shadow: 2px 2px 0 rgba(245,101,101,0.15);",
+            "em": "font-style: normal; color: #DD6B20; background: rgba(221,107,32,0.1); padding: 0 4px; font-weight: 600;",
+            "del": "text-decoration: line-through; color: #A0AEC0; opacity: 0.7;"
+        },
+        "list": {
+            "container": "padding-left: 26px; margin-bottom: 1.2em; color: #4A5568;",
+            "item": "margin-bottom: 0.7em; font-size: 15px; color: #4A5568; line-height: 1.8; font-weight: 500;",
+            "taskList": "list-style: none; margin-left: -22px; font-size: 15px; color: #4A5568; line-height: 1.8; font-weight: 500;"
+        },
+        "code": {
+            "block": "background: #FFF5F5; padding: 1.2em; border-radius: 10px; font-size: 14px; font-family: 'SF Mono', Menlo, monospace; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; color: #E53E3E; margin: 1.3em 0; border: 2px solid #FEB2B2;",
+            "inline": "background: #FFF5F5; padding: 3px 8px; border-radius: 4px; color: #E53E3E; font-size: 14px; font-family: 'SF Mono', Menlo, monospace; border: 1px solid #FEB2B2;"
+        },
+        "quote": "border-left: 4px solid #E53E3E; padding: 0 0 0 18px; margin: 1.2em 0; color: #C53030; font-style: normal; font-size: 15px; line-height: 1.8; background: rgba(245,101,101,0.05); border-radius: 0 8px 8px 0;",
+        "image": "max-width: 100%; height: auto; margin: 1.3em auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(245,101,101,0.15); border: 2px solid #FEB2B2;",
+        "link": "color: #E53E3E; text-decoration: none; border-bottom: 2px solid rgba(245,101,101,0.4); transition: all 0.2s ease; font-weight: 600;",
+        "table": {
+            "container": "width: 100%; margin: 1.3em 0; border-collapse: separate; border-spacing: 0; border-radius: 10px; overflow: hidden; border: 2px solid #FEB2B2;",
+            "header": "background: #FFF5F5; font-weight: 700; color: #E53E3E; padding: 12px;",
+            "cell": "padding: 12px; color: #4A5568; border-top: 1px solid #FEB2B2;"
+        },
+        "hr": "border: none; height: 3px; background: linear-gradient(90deg, #F56565, #ECC94B, #48BB78); margin: 28px 0; border-radius: 2px;",
+        "footnote": {
+            "ref": "color: #DD6B20; text-decoration: none; font-size: 0.9em; font-weight: 600;",
+            "backref": "color: #DD6B20; text-decoration: none; font-size: 0.9em; font-weight: 600;"
+        }
+    }
+}

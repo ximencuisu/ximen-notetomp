@@ -1,0 +1,69 @@
+{
+    "id": "cute",
+    "name": "Cute 甜美可爱",
+    "styles": {
+        "imagePreview": "background-color: #FFF5F7; padding: 32px 28px;",
+        "header": {
+            "avatar": {
+                "container": "width: 42px; height: 42px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 12px rgba(255,105,180,0.2); border: 2px solid rgba(255,182,193,0.5);",
+                "placeholder": "background: linear-gradient(135deg, #FFE4E9, #FFF0F3); transition: all 0.3s ease;",
+                "image": "object-fit: cover; transition: transform 0.3s ease;"
+            },
+            "nameContainer": "display: flex; align-items: center; gap: 8px;",
+            "userName": "font-size: 16px; font-weight: 700; color: #D63384; letter-spacing: 0.02em;",
+            "userId": "font-size: 14px; color: #E6859E;",
+            "postTime": "font-size: 13px; color: #F06595;",
+            "verifiedIcon": "width: 20px; height: 20px; margin-left: -5px; fill: #FF69B4;"
+        },
+        "footer": {
+            "container": "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #E6859E; font-size: 13px; border-top: 1px solid rgba(255,182,193,0.4); background: rgba(255,245,247,0.95); backdrop-filter: blur(8px);",
+            "text": "color: inherit; transition: color 0.2s ease; white-space: nowrap;",
+            "separator": "color: #F8A5C2;"
+        },
+        "title": {
+            "h2": {
+                "base": "margin: 0; font-size: 1.5em; letter-spacing: -0.01em; line-height: 1.5;",
+                "content": "font-weight: 700; color: #D63384;",
+                "after": ""
+            },
+            "h3": {
+                "base": "margin: 28px 0 0; font-size: 1.25em; line-height: 1.5;",
+                "content": "font-weight: 700; color: #D63384;",
+                "after": ""
+            },
+            "base": {
+                "base": "margin: 24px 0 0; font-size: 1.1em; line-height: 1.5;",
+                "content": "font-weight: 700; color: #D63384;",
+                "after": ""
+            }
+        },
+        "paragraph": "line-height: 1.8; margin-bottom: 1.1em; font-size: 15px; color: #5C374C;",
+        "emphasis": {
+            "strong": "font-weight: 700; color: #FF69B4; text-shadow: 0 1px 4px rgba(255,105,180,0.15);",
+            "em": "font-style: normal; color: #D63384; background: rgba(255,182,193,0.2); padding: 0 4px; border-radius: 4px;",
+            "del": "text-decoration: line-through; color: #E6859E; opacity: 0.7;"
+        },
+        "list": {
+            "container": "padding-left: 26px; margin-bottom: 1.2em; color: #7A4B6A;",
+            "item": "margin-bottom: 0.7em; font-size: 15px; color: #7A4B6A; line-height: 1.8;",
+            "taskList": "list-style: none; margin-left: -22px; font-size: 15px; color: #7A4B6A; line-height: 1.8;"
+        },
+        "code": {
+            "block": "background: #FFE4E9; padding: 1.2em; border-radius: 12px; font-size: 14px; font-family: 'SF Mono', Menlo, monospace; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; color: #D63384; margin: 1.3em 0; border: 1px solid rgba(255,182,193,0.4);",
+            "inline": "background: #FFE4E9; padding: 3px 8px; border-radius: 6px; color: #D63384; font-size: 14px; font-family: 'SF Mono', Menlo, monospace;"
+        },
+        "quote": "border-left: 3px solid #FF69B4; padding: 0 0 0 18px; margin: 1.2em 0; color: #D63384; font-style: normal; font-size: 15px; line-height: 1.8; background: rgba(255,182,193,0.1); border-radius: 0 8px 8px 0;",
+        "image": "max-width: 100%; height: auto; margin: 1.3em auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(255,105,180,0.15);",
+        "link": "color: #FF69B4; text-decoration: none; border-bottom: 1px solid rgba(255,105,180,0.3); transition: all 0.2s ease;",
+        "table": {
+            "container": "width: 100%; margin: 1.3em 0; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,182,193,0.4);",
+            "header": "background: #FFE4E9; font-weight: 600; color: #D63384; padding: 12px;",
+            "cell": "padding: 12px; color: #7A4B6A; border-top: 1px solid rgba(255,182,193,0.3);"
+        },
+        "hr": "border: none; border-top: 2px solid rgba(255,182,193,0.4); margin: 28px 0;",
+        "footnote": {
+            "ref": "color: #E6859E; text-decoration: none; font-size: 0.9em;",
+            "backref": "color: #E6859E; text-decoration: none; font-size: 0.9em;"
+        }
+    }
+}
