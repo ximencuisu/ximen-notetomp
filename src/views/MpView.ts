@@ -4,6 +4,18 @@ import { HtmlRenderer } from "../html-renderer";
 import { XimenSettings, DEFAULT_SETTINGS } from "../settings";
 import { THEMES, THEME_IDS, THEME_NAMES } from "../styles";
 
+const ACCENT_COLOR_PRESETS = [
+  { name: "默认", color: "" },
+  { name: "微信绿", color: "#07C160" },
+  { name: "晚点红", color: "#D32F2F" },
+  { name: "科技蓝", color: "#3498DB" },
+  { name: "暖橙", color: "#ED8936" },
+  { name: "深紫", color: "#7C3AED" },
+  { name: "森林绿", color: "#2D8B56" },
+  { name: "玫瑰粉", color: "#E91E8C" },
+  { name: "墨黑", color: "#1A1A1A" },
+];
+
 export const VIEW_TYPE_MP = "ximen-mp-view";
 
 export class MpView extends ItemView {
@@ -53,6 +65,32 @@ export class MpView extends ItemView {
     this.themeSelect.value = this.settings.mpDefaultTheme;
     this.themeSelect.addEventListener("change", () => {
       this.settings.mpDefaultTheme = this.themeSelect.value;
+      this.refresh();
+    });
+
+    toolbar.createSpan({ text: " 主题色: " });
+    const accentRow = toolbar.createDiv();
+    accentRow.style.cssText = "display:flex;align-items:center;gap:3px;";
+    for (const preset of ACCENT_COLOR_PRESETS) {
+      const dot = accentRow.createDiv();
+      dot.style.cssText = `width:16px;height:16px;border-radius:50%;cursor:pointer;border:2px solid ${this.settings.mpAccentColor === preset.color ? "var(--interactive-accent)" : "transparent"};transition:border-color 0.15s;`;
+      if (preset.color === "") {
+        dot.style.background = "conic-gradient(#e74c3c, #f39c12, #2ecc71, #3498db, #9b59b6, #e74c3c)";
+      } else {
+        dot.style.backgroundColor = preset.color;
+      }
+      dot.title = preset.name;
+      dot.addEventListener("click", () => {
+        this.settings.mpAccentColor = preset.color;
+        this.refresh();
+        this.onOpen();
+      });
+    }
+    const customColorInput = accentRow.createEl("input", { type: "text", attr: { placeholder: "#RRGGBB" } });
+    customColorInput.value = this.settings.mpAccentColor;
+    customColorInput.style.cssText = "width:60px;font-size:11px;padding:2px 4px;";
+    customColorInput.addEventListener("change", () => {
+      this.settings.mpAccentColor = customColorInput.value.trim();
       this.refresh();
     });
 
@@ -109,7 +147,10 @@ export class MpView extends ItemView {
       this.parser.setCurrentFile(this.currentFile.path);
       const parsed = await this.parser.parse(md, this.currentFile.path);
       const themeId = this.settings.mpDefaultTheme;
-      const themedHtml = this.htmlRenderer.applyTheme(parsed.html, themeId);
+      let themedHtml = this.htmlRenderer.applyTheme(parsed.html, themeId);
+      if (this.settings.mpAccentColor) {
+        themedHtml = this.htmlRenderer.applyAccentColor(themedHtml, this.settings.mpAccentColor, themeId);
+      }
       this.previewEl.innerHTML = themedHtml;
     } catch (e) {
       this.previewEl.setText("渲染错误: " + (e as Error).message);

@@ -111,6 +111,48 @@ export class XimenSettingTab extends PluginSettingTab {
       });
 
     new Setting(containerEl)
+      .setName("用户头像")
+      .setDesc("卡片头部显示的用户头像，留空使用默认图标")
+      .addText(text => {
+        text.setValue(this.plugin.settings.redUserAvatar.startsWith("data:") ? "(已上传图片)" : this.plugin.settings.redUserAvatar);
+        text.setPlaceholder("头像图片 URL");
+        text.onChange(async (value) => {
+          if (value !== "(已上传图片)") {
+            this.plugin.settings.redUserAvatar = value;
+            await this.plugin.saveSettings();
+          }
+        });
+      })
+      .addButton(btn => {
+        btn.setButtonText("上传");
+        btn.onClick(() => {
+          const input = document.createElement("input");
+          input.type = "file";
+          input.accept = "image/*";
+          input.onchange = async () => {
+            const file = input.files?.[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async () => {
+              this.plugin.settings.redUserAvatar = reader.result as string;
+              await this.plugin.saveSettings();
+              this.display();
+            };
+            reader.readAsDataURL(file);
+          };
+          input.click();
+        });
+      })
+      .addButton(btn => {
+        btn.setButtonText("清除");
+        btn.onClick(async () => {
+          this.plugin.settings.redUserAvatar = "";
+          await this.plugin.saveSettings();
+          this.display();
+        });
+      });
+
+    new Setting(containerEl)
       .setName("左侧页脚文字")
       .setDesc("卡片底部左侧文字")
       .addText(text => {

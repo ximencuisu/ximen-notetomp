@@ -72,6 +72,7 @@ export class BackgroundModal extends Modal {
 
         this.renderColorSection(contentEl);
         this.renderImageSection(contentEl);
+        this.renderOpacitySection(contentEl);
         this.renderAdjustSection(contentEl);
         this.renderActions(contentEl);
     }
@@ -241,6 +242,29 @@ export class BackgroundModal extends Modal {
         }
     }
 
+    private renderOpacitySection(contentEl: HTMLElement): void {
+        contentEl.createEl("h4", { text: "背景透明度" });
+
+        const opacityRow = contentEl.createDiv();
+        opacityRow.style.cssText = "display: flex; align-items: center; gap: 8px; margin-bottom: 6px;";
+        opacityRow.createSpan({ text: "透明度:" });
+        const opacitySlider = opacityRow.createEl("input", { type: "range" });
+        opacitySlider.min = "0";
+        opacitySlider.max = "100";
+        opacitySlider.step = "1";
+        opacitySlider.value = String(Math.round((this.settings.redBackgroundOpacity ?? 1) * 100));
+        opacitySlider.style.cssText = "flex: 1;";
+        const opacityVal = opacityRow.createSpan({ text: `${Math.round((this.settings.redBackgroundOpacity ?? 1) * 100)}%` });
+        opacityVal.style.cssText = "min-width: 36px; text-align: right; font-size: 12px;";
+        opacitySlider.addEventListener("input", () => {
+            opacityVal.setText(`${opacitySlider.value}%`);
+        });
+        opacitySlider.addEventListener("change", () => {
+            this.settings.redBackgroundOpacity = parseInt(opacitySlider.value) / 100;
+            this.onSave();
+        });
+    }
+
     private renderAdjustSection(contentEl: HTMLElement): void {
         if (!this.settings.redBackgroundImage) return;
 
@@ -319,6 +343,7 @@ export class BackgroundModal extends Modal {
             this.settings.redBackgroundScale = 1;
             this.settings.redBackgroundPositionX = 0;
             this.settings.redBackgroundPositionY = 0;
+            this.settings.redBackgroundOpacity = 1;
             this.onSave();
             this.onOpen();
         });

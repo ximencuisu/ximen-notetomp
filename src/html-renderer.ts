@@ -1,5 +1,7 @@
 ﻿import { Theme, THEMES } from "./styles";
 
+const ACCENT_STYLE_KEYS = ["h1", "h2", "h3", "a", "blockquote", "th", "hr"];
+
 export class HtmlRenderer {
   applyTheme(html: string, themeId: string): string {
     const theme = THEMES[themeId];
@@ -109,6 +111,24 @@ ${html}
     const div = document.createElement("div");
     div.innerHTML = html;
     return div.textContent || "";
+  }
+
+  applyAccentColor(html: string, accentColor: string, themeId: string): string {
+    if (!accentColor) return html;
+
+    const theme = THEMES[themeId];
+    if (!theme) return html;
+
+    const originalColor = this.extractAccentColor(theme);
+    if (!originalColor) return html;
+
+    return html.split(originalColor).join(accentColor);
+  }
+
+  private extractAccentColor(theme: Theme): string | null {
+    const h2Style = theme.styles.h2 || "";
+    const match = h2Style.match(/#[0-9a-fA-F]{6}/);
+    return match ? match[0] : null;
   }
 }
 

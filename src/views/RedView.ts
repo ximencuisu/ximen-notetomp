@@ -6,6 +6,7 @@ import { ExportManager } from "../export-manager";
 import { XimenSettings } from "../settings";
 import { RED_THEME_MAP, RED_THEMES } from "../templates/index";
 import { BackgroundModal } from "./BackgroundModal";
+import { AvatarModal } from "./AvatarModal";
 
 export const VIEW_TYPE_RED = "ximen-red-view";
 
@@ -18,6 +19,7 @@ export class RedView extends ItemView {
   private currentFile: TFile | null = null;
 
   private previewContainer: HTMLElement;
+  private bgOverlay: HTMLElement;
   private contentContainer: HTMLElement;
   private navEl: HTMLElement;
   private themeSelect: HTMLSelectElement;
@@ -62,6 +64,16 @@ export class RedView extends ItemView {
       const modal = new BackgroundModal(this.app, this.settings, () => {
         this.applyThemeToCurrent();
         this.applyBackgroundOverride();
+      });
+      modal.open();
+    });
+
+    // Avatar button
+    const avatarBtn = toolbar.createEl("button", { text: "👤 头像" });
+    avatarBtn.style.cssText = "padding:2px 8px;cursor:pointer;font-size:12px;";
+    avatarBtn.addEventListener("click", () => {
+      const modal = new AvatarModal(this.app, this.settings, () => {
+        this.showCurrentPage();
       });
       modal.open();
     });
@@ -125,7 +137,11 @@ export class RedView extends ItemView {
     this.previewContainer = previewWrapper.createDiv({ cls: "red-image-preview" });
     this.previewContainer.style.cssText = "width:360px;aspect-ratio:3/4;max-width:100%;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.15);position:relative;background:#1c1c1e;";
 
+    this.bgOverlay = this.previewContainer.createDiv({ cls: "red-bg-overlay" });
+    this.bgOverlay.style.cssText = "position:absolute;inset:0;z-index:0;pointer-events:none;";
+
     this.contentContainer = this.previewContainer.createDiv({ cls: "red-preview-content" });
+    this.contentContainer.style.cssText = "position:relative;z-index:1;";
 
     // Listen to file changes
     this.registerEvent(
@@ -226,29 +242,41 @@ export class RedView extends ItemView {
   }
 
   private applyBackgroundOverride(): void {
-    const container = this.previewContainer;
-    if (!container) return;
+    const overlay = this.bgOverlay;
+    if (!overlay) return;
+
+    overlay.style.backgroundColor = "";
+    overlay.style.backgroundImage = "";
+    overlay.style.backgroundSize = "";
+    overlay.style.backgroundPosition = "";
+    overlay.style.backgroundRepeat = "";
+    overlay.style.opacity = String(this.settings.redBackgroundOpacity);
 
     if (this.settings.redBackgroundColor) {
-      container.style.backgroundColor = this.settings.redBackgroundColor;
-      const footer = container.querySelector(".red-preview-footer") as HTMLElement;
+      overlay.style.backgroundColor = this.settings.redBackgroundColor;
+      const footer = this.previewContainer.querySelector(".red-preview-footer") as HTMLElement;
       if (footer) {
         footer.style.background = this.settings.redBackgroundColor;
+      }
+    } else {
+      const footer = this.previewContainer.querySelector(".red-preview-footer") as HTMLElement;
+      if (footer) {
+        footer.style.background = "";
       }
     }
 
     if (this.settings.redBackgroundImage) {
       const img = this.settings.redBackgroundImage;
       if (img.startsWith("linear-gradient") || img.startsWith("radial-gradient") || img.startsWith("repeating-linear-gradient")) {
-        container.style.backgroundImage = img;
-        container.style.backgroundSize = "cover";
-        container.style.backgroundPosition = "center";
-        container.style.backgroundRepeat = "no-repeat";
+        overlay.style.backgroundImage = img;
+        overlay.style.backgroundSize = "cover";
+        overlay.style.backgroundPosition = "center";
+        overlay.style.backgroundRepeat = "no-repeat";
       } else {
-        container.style.backgroundImage = `url(${img})`;
-        container.style.backgroundSize = `${this.settings.redBackgroundScale * 100}%`;
-        container.style.backgroundPosition = `${this.settings.redBackgroundPositionX}% ${this.settings.redBackgroundPositionY}%`;
-        container.style.backgroundRepeat = "no-repeat";
+        overlay.style.backgroundImage = `url(${img})`;
+        overlay.style.backgroundSize = `${this.settings.redBackgroundScale * 100}%`;
+        overlay.style.backgroundPosition = `${this.settings.redBackgroundPositionX}% ${this.settings.redBackgroundPositionY}%`;
+        overlay.style.backgroundRepeat = "no-repeat";
       }
     }
   }

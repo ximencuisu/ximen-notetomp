@@ -1,6 +1,7 @@
 ﻿export interface XimenSettings {
   // 公众号/头条号设置
   mpDefaultTheme: string;
+  mpAccentColor: string;
   showLineNumbers: boolean;
 
   // 小红书设置
@@ -19,10 +20,12 @@
   redBackgroundScale: number;
   redBackgroundPositionX: number;
   redBackgroundPositionY: number;
+  redBackgroundOpacity: number;
 }
 
 export const DEFAULT_SETTINGS: XimenSettings = {
   mpDefaultTheme: "wechat-default",
+  mpAccentColor: "",
   showLineNumbers: false,
   redThemeId: "default",
   redHeadingLevel: "h2",
@@ -39,4 +42,5 @@ export const DEFAULT_SETTINGS: XimenSettings = {
   redBackgroundScale: 1,
   redBackgroundPositionX: 0,
   redBackgroundPositionY: 0,
+  redBackgroundOpacity: 1,
 };
