@@ -9,6 +9,16 @@ import sakuraTheme from "./sakura.json";
 import starryTheme from "./starry.json";
 import metalTheme from "./metal.json";
 import yuelingTheme from "./yueling.json";
+import cuteTheme from "./cute.json";
+import freshTheme from "./fresh.json";
+import boldTheme from "./bold.json";
+import retroTheme from "./retro.json";
+import popTheme from "./pop.json";
+import notionTheme from "./notion.json";
+import chalkboardTheme from "./chalkboard.json";
+import studyNotesTheme from "./study-notes.json";
+import screenPrintTheme from "./screen-print.json";
+import sketchNotesTheme from "./sketch-notes.json";
 
 export interface RedThemeStyle {
   imagePreview: string;
@@ -60,6 +70,16 @@ export const RED_THEMES: RedTheme[] = [
   starryTheme as RedTheme,
   metalTheme as RedTheme,
   yuelingTheme as RedTheme,
+  cuteTheme as RedTheme,
+  freshTheme as RedTheme,
+  boldTheme as RedTheme,
+  retroTheme as RedTheme,
+  popTheme as RedTheme,
+  notionTheme as RedTheme,
+  chalkboardTheme as RedTheme,
+  studyNotesTheme as RedTheme,
+  screenPrintTheme as RedTheme,
+  sketchNotesTheme as RedTheme,
 ];
 
 export const RED_THEME_MAP: Record<string, RedTheme> = {};

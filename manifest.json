@@ -1,7 +1,7 @@
 ﻿{
   "id": "ximen-notetomp",
   "name": "西门发布助手",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "minAppVersion": "1.0.0",
   "description": "将 Obsidian 笔记发布到微信公众号、头条号、小红书",
   "author": "ximen",
